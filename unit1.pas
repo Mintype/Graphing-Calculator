@@ -18,6 +18,7 @@ type
     Label1: TLabel;
     PaintBox1: TPaintBox;
     Panel1: TPanel;
+    procedure Edit1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure myButtonClick(Sender: TObject);
     procedure PaintBox1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -43,6 +44,16 @@ implementation
 
 { TmyApp }
 
+function evaluateEquation(expression: string; x: Double): Double;
+var
+  theResult: Double;
+begin
+  expression := StringReplace(expression, 'x', FloatToStr(x), [rfReplaceAll]);
+  //ShowMessage(expression);
+  // TODO: do the parsing stuff
+  evaluateEquation := theResult;
+end;
+
 procedure TmyApp.myButtonClick(Sender: TObject);
 begin
 
@@ -51,6 +62,16 @@ end;
 procedure TmyApp.FormCreate(Sender: TObject);
 begin
   Drawing := False;
+end;
+
+procedure TmyApp.Edit1Change(Sender: TObject);
+var
+  Expression: string;
+  x, y: Double;
+begin
+  Expression := Edit1.Text;
+  y := evaluateEquation(Expression, 4.0); // ADD FOR LOOPS AND STUFFS HERE ALSO
+
 end;
 
 procedure TmyApp.PaintBox1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -87,7 +108,10 @@ begin
   // Draw a rectangle
   PaintBox1.Canvas.Brush.Color := clBlue;
   PaintBox1.Canvas.Pen.Color := clBlack;
-  PaintBox1.Canvas.Rectangle(20, 20, 100, 100);
+  //PaintBox1.Canvas.Rectangle(20, 20, 100, 100);
+  PaintBox1.Canvas.Line(0, 251, 2000, 251);
+  PaintBox1.Canvas.Line(350, 0, 350, 2000);
+  PaintBox1.Canvas.Pen.Color := clRed;
 end;
 
 end.

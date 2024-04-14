@@ -1,7 +1,7 @@
 object myApp: TmyApp
-  Left = 536
+  Left = 558
   Height = 550
-  Top = 261
+  Top = 222
   Width = 1000
   Caption = 'Graphing Calculator'
   ClientHeight = 550
@@ -26,7 +26,9 @@ object myApp: TmyApp
     Height = 31
     Top = 8
     Width = 94
+    Anchors = [akTop, akRight]
     Caption = 'myButton'
+    Enabled = False
     TabOrder = 0
     OnClick = myButtonClick
   end
@@ -35,6 +37,7 @@ object myApp: TmyApp
     Height = 502
     Top = 48
     Width = 700
+    Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clBackground
     ParentColor = False
     OnMouseDown = PaintBox1MouseDown
@@ -47,6 +50,7 @@ object myApp: TmyApp
     Height = 502
     Top = 48
     Width = 304
+    Anchors = [akTop, akLeft, akBottom]
     Color = clAppWorkspace
     ParentBackground = False
     ParentColor = False
@@ -65,5 +69,6 @@ object myApp: TmyApp
     ParentFont = False
     TabOrder = 2
     Text = 'y='
+    OnChange = Edit1Change
   end
 end
