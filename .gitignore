@@ -1,0 +1,29 @@
+# Compiled files
+*.exe
+*.o
+*.ppu
+*.compiled
+
+# Lazarus specific files
+*.lpi
+*.lps
+*.lps.bak
+*.res
+
+# Temporary files
+*.bak
+~*
+~
+
+# Dependencies
+bin/
+lib/
+obj/
+dll/
+vendor/
+
+# User-specific files
+.settings
+.prefs
+.DS_Store
+Thumbs.db
