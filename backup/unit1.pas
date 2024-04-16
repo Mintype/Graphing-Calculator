@@ -99,6 +99,10 @@ begin
   PaintBox1.Canvas.Brush.Color := clWhite;
   PaintBox1.Canvas.FillRect(PaintBox1.ClientRect);
 
+  PaintBox1.Canvas.Pen.Color := clBlack;
+  PaintBox1.Canvas.Line(0, PaintBox1.Height div 2, 2000, PaintBox1.Height div 2);
+  PaintBox1.Canvas.Line(PaintBox1.Width div 2, 0, PaintBox1.Width div 2, 2000);
+
   Expression := Edit1.Text;
   y := evaluateEquation(Expression, 4.0); // ADD FOR LOOPS AND STUFFS HERE ALSO
   for i := 0 to 500 do
@@ -107,8 +111,10 @@ begin
     try
       y := evaluateEquation(Expression, i);
       // Convert coordinates to pixels
-      x := x * 1 + PaintBox1.Width div 2; // Scale x to fit the canvas width
-      y := -y * 1 + PaintBox1.Height div 2; // Scale and invert y to fit the canvas height
+      x := x * 5 + PaintBox1.Width div 2; // Scale x to fit the canvas width
+      x := x + 300;
+      y := -y * 5 + PaintBox1.Height div 2; // Scale and invert y to fit the canvas height
+      y := y + 50;
 
       // Plot a point
       Canvas.Brush.Color := clRed;
